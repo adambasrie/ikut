@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Concepts Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        .demo-box {
+            background-color: white;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #output {
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript Concepts Demo</h1>
+
+    <div class="demo-box">
+        <h2>1. Function Demo</h2>
+        <button onclick="calculateSum()">Calculate Sum</button>
+        <div id="functionOutput"></div>
+    </div>
+
+    <div class="demo-box">
+        <h2>2. If-Else Demo</h2>
+        <button onclick="checkNumber()">Check Number</button>
+        <div id="ifElseOutput"></div>
+    </div>
+
+    <div class="demo-box">
+        <h2>3. Switch Demo</h2>
+        <button onclick="getDayName()">Get Day Name</button>
+        <div id="switchOutput"></div>
+    </div>
+
+    <div class="demo-box">
+        <h2>4. For Loop Demo</h2>
+        <button onclick="showForLoop()">Run For Loop</button>
+        <div id="forOutput"></div>
+    </div>
+
+    <div class="demo-box">
+        <h2>5. For...in Loop Demo</h2>
+        <button onclick="showForInLoop()">Run For...in Loop</button>
+        <div id="forInOutput"></div>
+    </div>
+
+    <div class="demo-box">
+        <h2>6. While Loop Demo</h2>
+        <button onclick="showWhileLoop()">Run While Loop</button>
+        <div id="whileOutput"></div>
+    </div>
+
+    <div class="demo-box">
+        <h2>7. Break Statement Demo</h2>
+        <button onclick="demonstrateBreak()">Run Break Demo</button>
+        <div id="breakOutput"></div>
+    </div>
+
+    <script>
+        // Function Demo
+        function calculateSum() {
+            function addNumbers(a, b) {
+                return a + b;
+            }
+            let result = addNumbers(5, 3);
+            document.getElementById('functionOutput').innerHTML = 
+                `Function result: 5 + 3 = ${result}`;
+        }
+
+        // If-Else Demo
+        function checkNumber() {
+            let number = Math.floor(Math.random() * 100);
+            let message;
+            
+            if (number > 50) {
+                message = `${number} is greater than 50`;
+            } else if (number === 50) {
+                message = `${number} is equal to 50`;
+            } else {
+                message = `${number} is less than 50`;
+            }
+            
+            document.getElementById('ifElseOutput').innerHTML = message;
+        }
+
+        // Switch Demo
+        function getDayName() {
+            let day = new Date().getDay();
+            let dayName;
+            
+            switch(day) {
+                case 0:
+                    dayName = "Sunday";
+                    break;
+                case 1:
+                    dayName = "Monday";
+                    break;
+                case 2:
+                    dayName = "Tuesday";
+                    break;
+                case 3:
+                    dayName = "Wednesday";
+                    break;
+                case 4:
+                    dayName = "Thursday";
+                    break;
+                case 5:
+                    dayName = "Friday";
+                    break;
+                case 6:
+                    dayName = "Saturday";
+                    break;
+                default:
+                    dayName = "Unknown day";
+            }
+            
+            document.getElementById('switchOutput').innerHTML = 
+                `Today is ${dayName}`;
+        }
+
+        // For Loop Demo
+        function showForLoop() {
+            let output = "";
+            for (let i = 1; i <= 5; i++) {
+                output += `Iteration ${i}<br>`;
+            }
+            document.getElementById('forOutput').innerHTML = output;
+        }
+
+        // For...in Loop Demo
+        function showForInLoop() {
+            let person = {
+                name: "John",
+                age: 30,
+                city: "New York"
+            };
+            
+            let output = "";
+            for (let prop in person) {
+                output += `${prop}: ${person[prop]}<br>`;
+            }
+            document.getElementById('forInOutput').innerHTML = output;
+        }
+
+        // While Loop Demo
+        function showWhileLoop() {
+            let count = 0;
+            let output = "";
+            
+            while (count < 5) {
+                output += `Count: ${count}<br>`;
+                count++;
+            }
+            document.getElementById('whileOutput').innerHTML = output;
+        }
+
+        // Break Demo
+        function demonstrateBreak() {
+            let output = "";
+            for (let i = 0; i < 10; i++) {
+                if (i === 5) {
+                    output += "Breaking the loop at i = 5<br>";
+                    break;
+                }
+                output += `Current number: ${i}<br>`;
+            }
+            document.getElementById('breakOutput').innerHTML = output;
+        }
+    </script>
+</body>
+</html>
